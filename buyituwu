@@ -9,13 +9,13 @@
 
 ]]--
 
-local obf_stringchar = string.char;
-local obf_stringbyte = string.byte;
-local obf_stringsub = string.sub;
+local obf_stringchar = string['char'];
+local obf_stringbyte = string['byte'];
+local obf_stringsub = string['sub'];
 local obf_bitlib = bit32 or bit;
-local obf_XOR = obf_bitlib.bxor;
-local obf_tableconcat = table.concat;
-local obf_tableinsert = table.insert;
+local obf_XOR = obf_bitlib['bxor'];
+local obf_tableconcat = table['concat'];
+local obf_tableinsert = table['insert'];
 local function LUAOBFUSACTOR_DECRYPT_STR_0(LUAOBFUSACTOR_STR, LUAOBFUSACTOR_KEY)
 	local result = {};
 	for i = 1, #LUAOBFUSACTOR_STR do

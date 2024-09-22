@@ -17,11 +17,20 @@ local obf_XOR = obf_bitlib['bxor'];
 local obf_tableconcat = table['concat'];
 local obf_tableinsert = table['insert'];
 local function LUAOBFUSACTOR_DECRYPT_STR_0(LUAOBFUSACTOR_STR, LUAOBFUSACTOR_KEY)
-	local result = {};
-	for i = 1, #LUAOBFUSACTOR_STR do
-		obf_tableinsert(result, obf_stringchar(obf_XOR(obf_stringbyte(obf_stringsub(LUAOBFUSACTOR_STR, i, i + 1)), obf_stringbyte(obf_stringsub(LUAOBFUSACTOR_KEY, 1 + (i % #LUAOBFUSACTOR_KEY), 1 + (i % #LUAOBFUSACTOR_KEY) + 1))) % 256));
+	local FlatIdent_76979 = 0;
+	local result;
+	while true do
+		if (FlatIdent_76979 == 1) then
+			return obf_tableconcat(result);
+		end
+		if (FlatIdent_76979 == 0) then
+			result = {};
+			for i = 1, #LUAOBFUSACTOR_STR do
+				obf_tableinsert(result, obf_stringchar(obf_XOR(obf_stringbyte(obf_stringsub(LUAOBFUSACTOR_STR, i, i + 1)), obf_stringbyte(obf_stringsub(LUAOBFUSACTOR_KEY, 1 + (i % #LUAOBFUSACTOR_KEY), 1 + (i % #LUAOBFUSACTOR_KEY) + 1))) % 256));
+			end
+			FlatIdent_76979 = 1;
+		end
 	end
-	return obf_tableconcat(result);
 end
 local a = 16164 + (((3864 + 364101) - 274396) - 67600) + (190952 - 110638);
 a = a + (113 - (26 + 67)) + (1219 - (119 + 997));
@@ -36,74 +45,117 @@ if ((1 + d) > c) then
 end
 print(LUAOBFUSACTOR_DECRYPT_STR_0("\23\187\64\21\183\47\72\51\247\114\37\168\52\79\58\176\90\43\252\49\79\56\187\9\21\179\43\86\56\178\93\19\176\63\6\60\190\77\19\252\50\78\61\164\9\5\168\52\79\58\176\8", "\38\84\215\41\118\220\70"));
 do
-	local FlatIdent_95CAC = 0;
+	local FlatIdent_24A02 = 0;
+	local FlatIdent_95CAC;
 	local primes;
 	while true do
-		if (FlatIdent_95CAC == 1) then
-			for key, value in pairs(primes) do
-				if value then
-					print(LUAOBFUSACTOR_DECRYPT_STR_0("\96\4\43\31\251\16\16\45\7\240\84\76\98", "\158\48\118\66\114") .. key);
+		if (FlatIdent_24A02 == 1) then
+			while true do
+				if (FlatIdent_95CAC == 1) then
+					for key, value in pairs(primes) do
+						if value then
+							print(LUAOBFUSACTOR_DECRYPT_STR_0("\96\4\43\31\251\16\16\45\7\240\84\76\98", "\158\48\118\66\114") .. key);
+						end
+					end
+					break;
+				end
+				if (FlatIdent_95CAC == 0) then
+					local FlatIdent_89ECE = 0;
+					local FlatIdent_47A9C;
+					while true do
+						if (FlatIdent_89ECE == 0) then
+							FlatIdent_47A9C = 0;
+							while true do
+								if (FlatIdent_47A9C == 1) then
+									FlatIdent_95CAC = 1;
+									break;
+								end
+								if (FlatIdent_47A9C == 0) then
+									function sieve_of_eratosthenes(n)
+										local FlatIdent_23BE8 = 0;
+										local FlatIdent_8D327;
+										local is_prime;
+										while true do
+											if (1 == FlatIdent_23BE8) then
+												while true do
+													local FlatIdent_10BCC = 0;
+													while true do
+														if (0 == FlatIdent_10BCC) then
+															if (FlatIdent_8D327 == 0) then
+																local FlatIdent_475BC = 0;
+																while true do
+																	if (FlatIdent_475BC == 0) then
+																		is_prime = {};
+																		for i = 1, n do
+																			is_prime[i] = 1 ~= i;
+																		end
+																		FlatIdent_475BC = 1;
+																	end
+																	if (FlatIdent_475BC == 1) then
+																		FlatIdent_8D327 = 1;
+																		break;
+																	end
+																end
+															end
+															if (FlatIdent_8D327 == 1) then
+																local FlatIdent_43862 = 0;
+																local FlatIdent_31A5A;
+																while true do
+																	if (0 == FlatIdent_43862) then
+																		FlatIdent_31A5A = 0;
+																		while true do
+																			if (FlatIdent_31A5A == 0) then
+																				for i = 2, math.floor(math.sqrt(n)) do
+																					if is_prime[i] then
+																						for j = i * i, n, i do
+																							is_prime[j] = false;
+																						end
+																					end
+																				end
+																				return is_prime;
+																			end
+																		end
+																		break;
+																	end
+																end
+															end
+															break;
+														end
+													end
+												end
+												break;
+											end
+											if (FlatIdent_23BE8 == 0) then
+												local FlatIdent_8F047 = 0;
+												while true do
+													if (FlatIdent_8F047 == 0) then
+														FlatIdent_8D327 = 0;
+														is_prime = nil;
+														FlatIdent_8F047 = 1;
+													end
+													if (FlatIdent_8F047 == 1) then
+														FlatIdent_23BE8 = 1;
+														break;
+													end
+												end
+											end
+										end
+									end
+									primes = sieve_of_eratosthenes(420);
+									FlatIdent_47A9C = 1;
+								end
+							end
+							break;
+						end
+					end
 				end
 			end
 			break;
 		end
-		if (FlatIdent_95CAC == 0) then
-			local FlatIdent_47A9C = 0;
-			while true do
-				if (FlatIdent_47A9C == 1) then
-					FlatIdent_95CAC = 1;
-					break;
-				end
-				if (FlatIdent_47A9C == 0) then
-					function sieve_of_eratosthenes(n)
-						local FlatIdent_23BE8 = 0;
-						local FlatIdent_8D327;
-						local is_prime;
-						while true do
-							if (1 == FlatIdent_23BE8) then
-								while true do
-									local FlatIdent_10BCC = 0;
-									while true do
-										if (0 == FlatIdent_10BCC) then
-											if (FlatIdent_8D327 == 0) then
-												is_prime = {};
-												for i = 1, n do
-													is_prime[i] = 1 ~= i;
-												end
-												FlatIdent_8D327 = 1;
-											end
-											if (FlatIdent_8D327 == 1) then
-												local FlatIdent_31A5A = 0;
-												while true do
-													if (FlatIdent_31A5A == 0) then
-														for i = 2, math.floor(math.sqrt(n)) do
-															if is_prime[i] then
-																for j = i * i, n, i do
-																	is_prime[j] = false;
-																end
-															end
-														end
-														return is_prime;
-													end
-												end
-											end
-											break;
-										end
-									end
-								end
-								break;
-							end
-							if (FlatIdent_23BE8 == 0) then
-								FlatIdent_8D327 = 0;
-								is_prime = nil;
-								FlatIdent_23BE8 = 1;
-							end
-						end
-					end
-					primes = sieve_of_eratosthenes(420);
-					FlatIdent_47A9C = 1;
-				end
-			end
+		if (FlatIdent_24A02 == 0) then
+			FlatIdent_95CAC = 0;
+			primes = nil;
+			FlatIdent_24A02 = 1;
 		end
 	end
 end
